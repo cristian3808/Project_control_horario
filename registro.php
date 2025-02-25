@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         required minlength="3" maxlength="50" 
                         pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" 
                         title="Solo letras, tildes, ñ y espacios son permitidos" 
-                        placeholder="Ejemplo: Sergio Quiroga Baez">
+                        placeholder="Ejemplo: Camilo Sánchez Bustos">
                 </div>
                 <div>
                     <label for="cedula" class="block text-sm font-medium text-gray-700">Cédula</label>
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         required minlength="6" maxlength="10" 
                         pattern="\d*" 
                         title="Solo números" 
-                        placeholder="Ejemplo: 88936568">
+                        placeholder="Ejemplo: 1012326654">
                 </div>
                 <div class="text-center">
                     <button type="submit" 
