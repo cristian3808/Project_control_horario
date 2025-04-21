@@ -95,7 +95,7 @@ $conn->close();
                 </nav>
             </div>
         </header>
-        <div class="overlay p-10 rounded-lg shadow-xl max-w-md text-center mt-20 sm:mt-16 md:mt-32">
+        <div class="overlay p-10 rounded-lg shadow-xl max-w-md text-center mt-20 sm:mt-16 md:mt-16">
             <h2 class="text-3xl font-bold mb-6 text-gray-700">¡Bienvenido a TF!</h2>
             <p class="mb-8 text-gray-600">Por favor ingresa tu usuario y contraseña para continuar.</p>
             <!-- Mostrar errores si existen -->
@@ -121,7 +121,7 @@ $conn->close();
         </div>
         <footer class="bg-white text-gray-600 body-font fixed bottom-0 w-full">
             <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-                <p class="text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 TF AUDITORES</p>
+                <p class="text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2025 TF AUDITORES</p>
                 <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                     <a href="https://www.facebook.com/people/TF-Auditores-y-Asesores-SAS-BIC/100065088457000/" class="text-gray-700 hover:text-blue-500">
                     </a>

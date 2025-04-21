@@ -33,44 +33,44 @@ if (!empty($fechaFilter) && isset($_GET['filtrar_fecha'])) {
 
 $query .= " ORDER BY created_at ASC";
 
-// Paginación
-$registrosPorPagina = 17;
-$paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
-$inicio = ($paginaActual - 1) * $registrosPorPagina;
+// // Paginación
+// $registrosPorPagina = 17;
+// $paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+// $inicio = ($paginaActual - 1) * $registrosPorPagina;
 
 // Contar el total de registros con el mismo filtro
-$sqlContar = "SELECT COUNT(*) as total FROM usuarios WHERE 1=1";
-$paramsCount = [];
-$paramTypesCount = "";
+// $sqlContar = "SELECT COUNT(*) as total FROM usuarios WHERE 1=1";
+// $paramsCount = [];
+// $paramTypesCount = "";
 
-// Aplicar filtros en la consulta de conteo
-if (!empty($cedulaFilter)) {
-    $sqlContar .= " AND cedula = ?";
-    $paramsCount[] = $cedulaFilter;
-    $paramTypesCount .= "s";
-}
-if (!empty($fechaFilter)) {
-    $sqlContar .= " AND DATE(created_at) = ?";
-    $paramsCount[] = $fechaFilter;
-    $paramTypesCount .= "s";
-}
+// // Aplicar filtros en la consulta de conteo
+// if (!empty($cedulaFilter)) {
+//     $sqlContar .= " AND cedula = ?";
+//     $paramsCount[] = $cedulaFilter;
+//     $paramTypesCount .= "s";
+// }
+// if (!empty($fechaFilter)) {
+//     $sqlContar .= " AND DATE(created_at) = ?";
+//     $paramsCount[] = $fechaFilter;
+//     $paramTypesCount .= "s";
+// }
 
-// Preparar y ejecutar la consulta de conteo
-$stmtContar = $conn->prepare($sqlContar);
-if ($paramTypesCount) {
-    $stmtContar->bind_param($paramTypesCount, ...$paramsCount);
-}
-$stmtContar->execute();
-$resultContar = $stmtContar->get_result();
-$totalRegistros = $resultContar->fetch_assoc()['total'];
-$totalPaginas = ceil($totalRegistros / $registrosPorPagina);
-$stmtContar->close();
+// // Preparar y ejecutar la consulta de conteo
+// $stmtContar = $conn->prepare($sqlContar);
+// if ($paramTypesCount) {
+//     $stmtContar->bind_param($paramTypesCount, ...$paramsCount);
+// }
+// $stmtContar->execute();
+// $resultContar = $stmtContar->get_result();
+// $totalRegistros = $resultContar->fetch_assoc()['total'];
+// $totalPaginas = ceil($totalRegistros / $registrosPorPagina);
+// $stmtContar->close();
 
-// Obtener los usuarios de la base de datos para la página actual
-$query .= " LIMIT ?, ?";
-$params[] = $inicio;
-$params[] = $registrosPorPagina;
-$paramTypes .= "ii"; // 'i' para enteros
+// // Obtener los usuarios de la base de datos para la página actual
+// $query .= " LIMIT ?, ?";
+// $params[] = $inicio;
+// $params[] = $registrosPorPagina;
+// $paramTypes .= "ii"; // 'i' para enteros
 
 // Preparar y ejecutar la consulta principal
 $stmt = $conn->prepare($query);
@@ -190,20 +190,6 @@ $conn->close(); // Cerrar la conexión
                     <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
-        <!-- Paginación -->
-        <div class="flex justify-center space-x-2 mt-4">
-            <?php if ($paginaActual > 1): ?>
-                <a href="?pagina=<?= $paginaActual - 1 ?>" class="px-4 py-2 bg-green-600 text-white rounded">Anterior</a>
-            <?php endif; ?>
-
-            <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
-                <a href="?pagina=<?= $i ?>" class="px-4 py-2 <?= $i == $paginaActual ? 'bg-green-600 text-white' : 'bg-green-600 text-white' ?> rounded"><?= $i ?></a>
-            <?php endfor; ?>
-
-            <?php if ($paginaActual < $totalPaginas): ?>
-                <a href="?pagina=<?= $paginaActual + 1 ?>" class="px-4 py-2 bg-green-600 text-white rounded">Siguiente</a>
-            <?php endif; ?>
         </div>
         <script>
             function cerrarSesion() {
