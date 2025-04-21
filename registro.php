@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario - TF Auditores</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/static/img/TF.ico" type="image/x-icon">
     <style>
         /* Custom styles for additional responsiveness */
         body {
@@ -137,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <footer class="bg-white text-gray-600 body-font">
         <div class="container px-5 py-4 mx-auto flex items-center sm:flex-row flex-col">
             <p class="text-xs sm:text-sm text-gray-700 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-                &copy; 2024 TF AUDITORES
+                &copy; 2025 TF AUDITORES
             </p>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                 <a href="https://www.facebook.com/people/TF-Auditores-y-Asesores-SAS-BIC/100065088457000/" class="text-gray-700 hover:text-blue-500">
